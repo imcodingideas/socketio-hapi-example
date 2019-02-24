@@ -14,7 +14,7 @@ const init = async () => {
   const io = SocketIO.listen(server.listener)
 
   io.sockets.on('connection', (socket) => {
-    socket.emit({ msg: 'welcome' })
+    socket.emit('msg', 'welcome')
   })
 
   console.log(`Server running at: ${server.info.uri}`)
