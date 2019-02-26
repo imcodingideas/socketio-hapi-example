@@ -9,14 +9,13 @@ const server = Hapi.server({
 })
 
 const init = async () => {
-  await server.start()
-
   const io = SocketIO.listen(server.listener)
 
   io.sockets.on('connection', (socket) => {
     socket.emit('msg', 'welcome')
   })
 
+  await server.start()
   console.log(`Server running at: ${server.info.uri}`)
 }
 
