@@ -13,8 +13,12 @@
   <script>
     const socket = io('http://localhost:8081');
 
-    socket.on('connection', data => {
-      socket.emit('my other event')
+    socket.on('connect', data => {
+      console.log('connected')
+    })
+
+    socket.on('msg', data => {
+      console.log(data)
     })
   </script>
 
