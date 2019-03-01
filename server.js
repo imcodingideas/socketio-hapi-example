@@ -11,8 +11,9 @@ const server = Hapi.server({
 const init = async () => {
   const io = SocketIO.listen(server.listener)
 
-  io.sockets.on('connection', (socket) => {
-    socket.emit('msg', 'welcome')
+  io.on('connection', socket => {
+    // socket.emit('msg')
+    console.log('I work')
   })
 
   await server.start()
